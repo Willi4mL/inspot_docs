@@ -134,5 +134,4 @@ Den här koden är skriven i php och ska placeras i function.php filen.
   display: none;
 }
 ```
-
 :::

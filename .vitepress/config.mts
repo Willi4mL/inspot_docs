@@ -7,8 +7,12 @@ const url = 'https://vitepress.dev/guide/what-is-vitepress'
 export default defineConfig({
   title: "Inspot docs",
   description: "Inspot dokmentations sida",
+  head: [['link', { rel: 'icon', href: '../../public/images/logotype/inspot_favicon.svg' }]],
   themeConfig: {
-    logo: '/public/images/logotype/inspot_dark.png',
+    logo: {
+      light: '/public/images/logotype/inspot_dark.png',
+      dark: '/public/images/logotype/inspot_white.png'
+    },
     search: {
       provider: 'local',
       options: {
@@ -17,8 +21,8 @@ export default defineConfig({
           if (env.frontmatter?.title)
             return md.render(`# ${env.frontmatter.title}`) + html
           return html
-        }
-      }
+        },
+      },
     },
     nav: [
       { text: 'Hem', link: '/' },

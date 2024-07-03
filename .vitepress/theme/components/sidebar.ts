@@ -12,26 +12,23 @@ export const sidebar = [
                 { text: 'Meny',  
                   collapsed: true,
                   items: [
-                    {text: 'Sidomeny', link: '/inspot-docs/blocks/block'},
-                    {text: 'Hamburgermeny', link: '/inspot-docs/blocks/block'},
-                    {text: 'Popup dialog', link: '/inspot-docs/blocks/block'},
+                    {text: 'Meny 1', link: '/'},
+                    {text: 'Meny 2', link: '/'},
+                    {text: 'Meny 3', link: '/'},
                     ]},
                 { text: 'Karusell',  
                   collapsed: true,
                   items: [
-                    {text: 'Bilder', link: '/inspot-docs/blocks/block'},
-                    {text: 'Texter', link: '/inspot-docs/blocks/block'},
-                    {text: 'Infinnity loop', link: '/inspot-docs/blocks/block'},
-                    {text: 'Klick', link: '/inspot-docs/blocks/block'},
-                    {text: 'Skroll', link: '/inspot-docs/blocks/block'},
+                    {text: 'Karusell 1', link: '/'},
+                    {text: 'Karusell 2', link: '/'},
+                    {text: 'Karusell 3', link: '/'},
                     ]},
                 { text: 'Banner',  
                   collapsed: true,
                   items: [
-                    {text: 'Call to action', link: '/inspot-docs/blocks/block'},
-                    {text: 'Profil', link: '/inspot-docs/blocks/block'},
-                    {text: 'Reklam', link: '/inspot-docs/blocks/block'},
-                    {text: 'Skroll', link: '/inspot-docs/blocks/block'},
+                    {text: 'Banner 1', link: '/'},
+                    {text: 'Banner 2', link: '/'},
+                    {text: 'Banner 3', link: '/'},
                     ]},
               ]
             },
@@ -44,13 +41,14 @@ export const sidebar = [
                     items: [
                       {text: 'Tillåt SVG', link: '/docs-pages/docs-functions/enable-svg'},
                       {text: 'Brödsmulor', link: '/docs-pages/docs-functions/breadcrumbs'},
-                      {text: 'Hot reload', link: '/inspot-docs/blocks/block'},
+                      {text: 'Wordpress 1', link: '/'},
                       ]},
                   { text: 'Optimering',  
                     collapsed: true,
                     items: [
-                      {text: 'Bilder kvalitét', link: '/inspot-docs/blocks/block'},
-                      {text: 'Caching', link: '/inspot-docs/blocks/block'},
+                      {text: 'Optimering 1', link: '/'},
+                      {text: 'Optimering 2', link: '/'},
+                      {text: 'Optimering 3', link: '/'},
                       ]},
               ]
             },
@@ -59,17 +57,17 @@ export const sidebar = [
               collapsed: true,
                 items: [
                   {text: 'Knappar', link: '/docs-pages/docs-styleguide/buttons'},
-                  {text: 'Skuggor', link: '/inspot-docs/blocks/block'},
-                  {text: 'Kort', link: '/inspot-docs/blocks/block'},
+                  {text: 'Styleguide 1', link: '/'},
+                  {text: 'Styleguide 2', link: '/'},
               ]
             },
             {
               text: 'Animations', 
               collapsed: true,
                 items: [
-                  {text: 'Studs', link: '/inspot-docs/blocks/block'},
-                  {text: 'Slide', link: '/inspot-docs/blocks/block'},
-                  {text: 'Fade', link: '/inspot-docs/blocks/block'},
+                  {text: 'Animation 1', link: '/'},
+                  {text: 'Animation 2', link: '/'},
+                  {text: 'Animation 3', link: '/'},
               ]
             }]
           },
