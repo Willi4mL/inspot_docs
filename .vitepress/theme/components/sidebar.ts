@@ -53,12 +53,21 @@ export const sidebar = [
               ]
             },
             {
+              text: 'Element', 
+              collapsed: true,
+                items: [
+                  {text: 'Knappar', link: '/docs-pages/docs-elements/buttons'},
+                  {text: 'Element 1', link: '/'},
+                  {text: 'Element 2', link: '/'},
+              ]
+            },
+            {
               text: 'Styleguide', 
               collapsed: true,
                 items: [
-                  {text: 'Knappar', link: '/docs-pages/docs-styleguide/buttons'},
                   {text: 'Styleguide 1', link: '/'},
                   {text: 'Styleguide 2', link: '/'},
+                  {text: 'Styleguide 3', link: '/'},
               ]
             },
             {

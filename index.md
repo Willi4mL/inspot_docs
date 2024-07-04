@@ -18,11 +18,24 @@ hero:
       link: /api-examples
 
 features:
-  - title: Block
-    details: Med ACF-block kan utvecklare enkelt skapa dynamiska och flexibla innehållsblock genom att använda Advanced Custom Fields-pluginet. Dessa block möjliggör anpassade fält och komplexa layoutalternativ, vilket gör det enkelt att hantera och presentera data på ett användarvänligt sätt.
-  - title: Funktioner
-    details: Kodfunktioner är definierade segment av kod som utför specifika uppgifter inom ett program. De bidrar till att organisera och återanvända kod, vilket förbättrar programmets läsbarhet och underhåll. Funktionerna kan ta emot parametrar, utföra beräkningar eller operationer, och returnera värden.
-  - title: Animeringar
-    details: Animeringar i kod används för att skapa visuella effekter och dynamiska upplevelser på webbplatser och i applikationer. Animeringar förbättrar användarupplevelsen genom att göra gränssnittet mer interaktivt och visuellt tilltalande.
+  - icon: 🧩
+    title: Flexibla Komponenter
+    details: Våra komponenter är designade för att vara modulära och återanvändbara, vilket sparar tid och arbete i dina utvecklingsprojekt. Med enkla konfigurationer kan du anpassa och integrera dem i dina applikationer för att snabbt uppnå de resultat du önskar.
+  - icon: 📑
+    title: Omfattande API-dokumentation
+    details: Vi tillhandahåller detaljerad och lättförståelig API-dokumentation som hjälper dig att snabbt komma igång med våra tjänster. Dokumentationen inkluderar tydliga exempel, användningsfall och omfattande referensguider för att säkerställa att du kan utnyttja våra API:er till fullo.
+  - icon: 🖌️
+    title: Designsystem och Stilmallar
+    details: Vårt designsystem inkluderar ett bibliotek av stilmallar och UI-komponenter som säkerställer ett enhetligt utseende och känsla i dina projekt. Genom att använda våra stilmallar kan du enkelt upprätthålla konsekvens och spara tid på designarbete.
+  - icon: 💾
+    title: Optimerade Prestandamönster
+    details: Vi erbjuder beprövade prestandamönster och optimeringstekniker som hjälper dig att bygga snabba och effektiva applikationer. Genom att följa våra riktlinjer kan du maximera dina applikationers hastighet och responsivitet.
+  - icon: 🔐
+    title: Säkerhetsstandarder och Praxis
+    details: Vår dokumentation omfattar också säkerhetsstandarder och bästa praxis för att skydda dina applikationer mot vanliga hot. Vi hjälper dig att implementera robusta säkerhetsåtgärder och att hålla din data säker.
+  - icon: 🏗️
+    title: Skalbar Arkitektur
+    details: Bygg dina applikationer med skalbarhet i åtanke genom att följa våra arkitektoniska riktlinjer. Vi erbjuder insikter och mönster för att skapa system som kan hantera ökande belastningar och växa med dina behov.
+
 ---
 
