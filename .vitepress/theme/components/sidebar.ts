@@ -57,7 +57,7 @@ export const sidebar = [
               collapsed: true,
                 items: [
                   {text: 'Knappar', link: '/docs-pages/docs-elements/buttons'},
-                  {text: 'Element 1', link: '/'},
+                  {text: 'Popup', link: '/docs-pages/docs-elements/popup'},
                   {text: 'Element 2', link: '/'},
               ]
             },
