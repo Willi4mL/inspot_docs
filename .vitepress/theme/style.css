@@ -88,8 +88,11 @@
   --vp-button-brand-hover-bg: transparent;
   /* --vp-button-brand-hover-bg: var(--vp-c-brand-2); */
   --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-text: #51CEBC;
+  /* --vp-button-brand-active-text: var(--vp-c-white); */
+  --vp-button-brand-active-bg: transparent;
+  /* --vp-button-brand-active-bg: var(--vp-c-brand-1); */
+  --vp-button-brand-active-border: #51CEBC;
 }
 
 /**
@@ -141,4 +144,13 @@
 
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+.VPFeatures {
+  background-color: #d7dffa33;
+  padding: 4rem 2rem !important;
+}
+
+.VPFeature {
+  box-shadow: 0 0 20px 0 rgb(91, 123, 214, 0.4);
 }
