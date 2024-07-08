@@ -1,4 +1,4 @@
-name: Deploy VitePress to GitHub Pages
+name: NodeJS with Webpack
 
 on:
   push:
@@ -13,52 +13,15 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: Set up Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
+    - name: Build
       run: |
         npm install
-
-    - name: Build the docs
-      run: |
+        npx webpack
         npm run docs:build
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/.vitepress/dist
-
-
-# name: NodeJS with Webpack
-
-# on:
-#   push:
-#     branches: [ "main" ]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [14.x, 16.x, 18.x]
-
-#     steps:
-#     - uses: actions/checkout@v4
-
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ matrix.node-version }}
-
-#     - name: Build
-#       run: |
-#         npm install
-#         npm run docs:build
