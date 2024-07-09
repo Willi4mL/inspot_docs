@@ -7,7 +7,7 @@ const url = 'https://vitepress.dev/guide/what-is-vitepress'
 export default defineConfig({
   title: "Inspot docs",
   description: "Inspot dokmentations sida",
-  base: '/willi4ml.github.io/',
+  base: '/inspot_docs/',
   head: [['link', { rel: 'icon', href: '../../public/images/logotype/inspot_favicon.svg' }]],
   themeConfig: {
     logo: {
