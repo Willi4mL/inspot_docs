@@ -3,7 +3,7 @@ import { sidebar } from './theme/components/sidebar'
 
 const logoLight = '/images/logotype/inspot_white.png'
 const logoDark = '/images/logotype/inspot_dark.png'
-const favicon = '/images/logotype/inspot_favicon.ico'
+const favicon = '../public/images/logotype/inspot_favicon.ico'
 
 const url = 'https://vitepress.dev/guide/what-is-vitepress'
 
@@ -14,7 +14,7 @@ export default defineConfig({
   base: '/inspot_docs/',
   head: [ 
     ['link', { rel: 'icon', href: favicon, type: 'image/x-icon' }],
-    ['link', { rel: 'icon', href: '/images/logotype/inspot_favicon.svg', type: 'image/png', sizes: '32x32' }],
+    ['link', { rel: 'icon', href: '../public/images/logotype/inspot_favicon.svg', type: 'image/png', sizes: '32x32' }],
   ],
   themeConfig: {
     logo: {
