@@ -1,18 +1,25 @@
 import { defineConfig } from 'vitepress'
 import { sidebar } from './theme/components/sidebar'
 
+const logoLight = '/images/logotype/inspot_white.png'
+const logoDark = '/images/logotype/inspot_dark.png'
+const favicon = '../public/images/logotype/inspot_favicon.ico'
+
 const url = 'https://vitepress.dev/guide/what-is-vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Inspot docs",
+  title: "Dokomentation",
   description: "Inspot dokmentations sida",
   base: '/inspot_docs/',
-  head: [['link', { rel: 'icon', href: '../../public/images/logotype/inspot_favicon.svg' }]],
+  head: [ 
+    ['link', { rel: 'icon', href: favicon, type: 'image/x-icon' }],
+    ['link', { rel: 'icon', href: '../public/images/logotype/inspot_favicon.svg', type: 'image/png', sizes: '32x32' }],
+  ],
   themeConfig: {
     logo: {
-      light: '/public/images/logotype/inspot_dark.png',
-      dark: '/public/images/logotype/inspot_white.png'
+      light: logoDark,
+      dark: logoLight
     },
     search: {
       provider: 'local',
