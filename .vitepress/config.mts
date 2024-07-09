@@ -3,7 +3,7 @@ import { sidebar } from './theme/components/sidebar'
 
 const logoLight = '/images/logotype/inspot_white.png'
 const logoDark = '/images/logotype/inspot_dark.png'
-const favicon = './public/images/logotype/inspot_favicon.ico'
+const favicon = '/images/logotype/inspot_favicon.ico'
 
 const url = 'https://vitepress.dev/guide/what-is-vitepress'
 
