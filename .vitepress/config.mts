@@ -12,7 +12,10 @@ export default defineConfig({
   title: "Dokomentation",
   description: "Inspot dokmentations sida",
   base: '/inspot_docs/',
-  head: [['link', { rel: 'icon', href: favicon }]],
+  head: [ 
+    ['link', { rel: 'icon', href: favicon, type: 'image/x-icon' }],
+    ['link', { rel: 'icon', href: '/images/logotype/inspot_favicon.png', type: 'image/png', sizes: '32x32' }],
+  ],
   themeConfig: {
     logo: {
       light: logoDark,
