@@ -106,3 +106,9 @@ Dokumentationen fungerar också som ett samarbetsverktyg där teammedlemmar kan 
 
 Genom att regelbundet använda och bidra till denna dokumentation, kan vi säkerställa en effektiv och samordnad utvecklingsprocess, vilket i slutändan leder till en mer robust och framgångsrik produkt.
 
+<script setup>
+import EditPageButton from './.vitepress/theme/components/edit-page-button.vue'
+</script>
+
+<EditPageButton />
+

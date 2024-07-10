@@ -38,3 +38,9 @@ function fix_svg_preview($response, $attachment, $meta) {
 add_filter('wp_prepare_attachment_for_js', 'fix_svg_preview', 10, 3);
 
 ```
+
+<script setup>
+import EditPageButton from '../../.vitepress/theme/components/edit-page-button.vue'
+</script>
+
+<EditPageButton />

@@ -275,3 +275,9 @@ Detta är en basic styling som är skriven med css och placeras i en css fil.
     color:#ccc;
 }
 ```
+
+<script setup>
+import EditPageButton from '../../.vitepress/theme/components/edit-page-button.vue'
+</script>
+
+<EditPageButton />

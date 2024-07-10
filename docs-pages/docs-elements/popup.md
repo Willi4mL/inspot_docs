@@ -96,6 +96,12 @@ window.onclick = function(event) {
 ```
 :::
 
+<script setup>
+import EditPageButton from '../../.vitepress/theme/components/edit-page-button.vue'
+</script>
+
+<EditPageButton />
+
 <script>
 import './elements.css'
 </script>

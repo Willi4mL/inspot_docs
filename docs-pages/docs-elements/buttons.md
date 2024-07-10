@@ -1,4 +1,3 @@
-
 # Knappar
 
 Denna dokumentation visar flera alternativ av knappar.
@@ -47,6 +46,12 @@ Den här koden är skriven i HTML och CSS med en simple hover effekt.
   }
 ```
 :::
+
+<script setup>
+import EditPageButton from '../../.vitepress/theme/components/edit-page-button.vue'
+</script>
+
+<EditPageButton />
 
 <script>
 import './elements.css'
