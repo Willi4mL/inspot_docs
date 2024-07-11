@@ -5,16 +5,15 @@ const logoLight = '/images/logotype/inspot_white.png'
 const logoDark = '/images/logotype/inspot_dark.png'
 const favicon = '../public/images/logotype/inspot_favicon.ico'
 
-const url = 'https://vitepress.dev/guide/what-is-vitepress'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Dokomentation",
   description: "Inspot dokmentations sida",
   base: '/inspot_docs/',
-  head: [ 
+  head: [
     ['link', { rel: 'icon', href: favicon, type: 'image/x-icon' }],
     ['link', { rel: 'icon', href: '../public/images/logotype/inspot_favicon.svg', type: 'image/png', sizes: '32x32' }],
+    ['meta', { name: 'robots', content: 'noindex, nofollow' }] // noindex
   ],
   themeConfig: {
     logo: {
@@ -39,9 +38,9 @@ export default defineConfig({
     ],
 
     sidebar,
-  
+
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],   
-    },
-    })
+      { icon: 'github', link: 'https://github.com/Willi4mL/inspot_docs' }
+    ],
+  },
+})
