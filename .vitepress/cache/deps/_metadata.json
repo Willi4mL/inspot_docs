@@ -1,52 +1,52 @@
 {
-  "hash": "6c24e7d1",
-  "configHash": "5afd3d9e",
-  "lockfileHash": "aba15cd9",
-  "browserHash": "fd54229d",
+  "hash": "ea7dab4c",
+  "configHash": "41c17f4f",
+  "lockfileHash": "c3fee436",
+  "browserHash": "4b5d9ed0",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "99ded075",
+      "fileHash": "de1689f7",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "651a83c9",
+      "fileHash": "2cde0e71",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "950e5b20",
+      "fileHash": "ac51b810",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "64dee746",
+      "fileHash": "0eff2194",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "46fc134a",
+      "fileHash": "f36294f2",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "49d6dcd0",
+      "fileHash": "e486d026",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-GK7ZRSPS": {
-      "file": "chunk-GK7ZRSPS.js"
+    "chunk-PO56WC6A": {
+      "file": "chunk-PO56WC6A.js"
     },
-    "chunk-XPVHNUZ4": {
-      "file": "chunk-XPVHNUZ4.js"
+    "chunk-A3X4XGHH": {
+      "file": "chunk-A3X4XGHH.js"
     }
   }
 }
