@@ -29,6 +29,13 @@ export const sidebar = [
               { text: 'Fixa teckenkodning', link: '/docs-pages/docs-functions/teckenkodning-för-svenska-tecken' },
             ]
           },
+          {
+            text: 'Javascript',
+            collapsed: true,
+            items: [
+              { text: 'Cookie', link: '/docs-pages/docs-functions/cookie-js' },
+            ]
+          },
         ]
       },
       {
