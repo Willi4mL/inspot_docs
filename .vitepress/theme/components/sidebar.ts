@@ -47,6 +47,13 @@ export const sidebar = [
           { text: 'Element 2', link: '/' },
         ]
       },
+      {
+        text: 'Tillgänglighet',
+        collapsed: true,
+        items: [
+          { text: 'Färger', link: '/docs-pages/docs-accessibility/colors' },
+        ]
+      },
       { text: 'Markdown Examples', link: '/markdown-examples' },
       { text: 'Runtime API Examples', link: '/api-examples' },
       { text: 'Om inspot dokumenation', link: '/docs-landing' }

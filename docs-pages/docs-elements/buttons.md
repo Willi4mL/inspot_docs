@@ -48,11 +48,9 @@ Den här koden är skriven i HTML och CSS med en simple hover effekt.
 :::
 
 <script setup>
+import './elements.css'
 import EditPageButton from '../../.vitepress/theme/components/edit-page-button.vue'
 </script>
 
 <EditPageButton />
 
-<script>
-import './elements.css'
-</script>
