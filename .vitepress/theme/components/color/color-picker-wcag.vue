@@ -129,7 +129,7 @@ return Number(wcagRatio);
     width: 100%;
     border-radius: 0.3rem;
     margin-top: 1rem;
-    border: 1px solid #8a8a8a;
+    border: 1px solid #ccc;
 }
 
 .wcag-foreground {

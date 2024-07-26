@@ -8,6 +8,7 @@
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
+    "@bjornlu/colorblind": "^1.0.3",
     "vue-accessible-color-picker": "^5.0.1"
   }
 }
