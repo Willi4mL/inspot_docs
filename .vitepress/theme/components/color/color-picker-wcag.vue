@@ -1,8 +1,8 @@
 <template>
   <section class="wcag-container">
     <div class="wcag-color-picker-container">
-      <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex" />
-      <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex" color="#000000" />
+      <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex" alpha-channel="hide"/>
+      <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex" alpha-channel="hide" color="#000000"/>
     </div>
     <div class="wcag-background" :style="{ backgroundColor: backgroundColor }">
       <input class="wcag-foreground" :style="{ color: foregroundColor }" value="Lorem ipsum"></input>
