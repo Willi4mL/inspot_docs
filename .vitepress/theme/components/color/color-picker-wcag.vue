@@ -10,7 +10,7 @@
   <section class="wcag-container">
     <div class="wcag-color-picker-container">
       <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex"
-        alpha-channel="hide" />
+        alpha-channel="hide"/>
       <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex"
         alpha-channel="hide" color="#000000" />
     </div>
@@ -203,6 +203,15 @@ function calcRatio() {
     gap: 1rem;
 }
 
+.vacp-color-picker {
+  background-color: transparent;
+
+  .vacp-color-input,
+  .vacp-icon {
+    color: #000000;
+  }
+}
+
 .color-example-container {
     display: flex;
     flex-direction: column;
@@ -242,6 +251,7 @@ function calcRatio() {
     width: 100%;
     border-radius: 8px;
     border: 1px solid #ccc;
+    background-color: #ffffff;
 }
 
 .wcag-foreground {
