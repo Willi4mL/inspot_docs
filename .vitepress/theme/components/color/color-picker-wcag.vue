@@ -1,19 +1,40 @@
 <template>
-    <select v-model="selected" name="color" id="color-disability" class="color-disability">
-        <option disabled value="">Välj synfel</option>
-        <option value="normal">Normal</option>
-        <option value="protanopia">Protanopia (ej röd)</option>
-        <option value="deuteranopia">Deuteranopia (ej grön)</option>
-        <option value="tritanopia">Tritanopia (ej blå)</option>
-        <option value="achromatopsia">Achromatopsia (svartvit)</option>
-    </select>
+  <select v-model="selected" name="color" id="color-disability" class="color-disability">
+    <option disabled value="">Välj synfel</option>
+    <option value="normal">Normal</option>
+    <option value="protanopia">Protanopia (ej röd)</option>
+    <option value="deuteranopia">Deuteranopia (ej grön)</option>
+    <option value="tritanopia">Tritanopia (ej blå)</option>
+    <option value="achromatopsia">Achromatopsia (svartvit)</option>
+  </select>
   <section class="wcag-container">
     <div class="wcag-color-picker-container">
-      <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex" alpha-channel="hide"/>
-      <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex" alpha-channel="hide" color="#000000"/>
+      <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex"
+        alpha-channel="hide" />
+      <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex"
+        alpha-channel="hide" color="#000000" />
     </div>
-    <div class="wcag-background" :style="{ backgroundColor: backgroundColor }">
-      <input class="wcag-foreground" :style="{ color: foregroundColor }" value="Lorem ipsum"></input>
+    <div class="color-example-container">
+
+      <div class="text-option-container">
+        <div>
+          <label class="font-size-option" for="fontSizeOption">Textstorlek (px)
+            <input type="number" name="fontSizeOption" id="fontSizeOption" v-model="fontSizeOptionExample">
+          </label>
+        </div>
+
+        <div>
+          <label class="checkbox-bold-text" for="checkboxBold">Fet text
+            <input type="checkbox" name="checkboxBold" id="checkboxBold" v-model="checkboxBold">
+          </label>
+        </div>
+
+      </div>
+
+      <div class="wcag-background" :style="{ backgroundColor: backgroundColor }">
+        <input class="wcag-foreground" :style="{ color: foregroundColor, fontWeight: checkboxBold ? 'bold' : 'normal', fontSize: fontSizeOptionExample + 'px' }"
+          value="Lorem ipsum"></input>
+      </div>
     </div>
     <section class="table-container">
       <table>
@@ -32,12 +53,14 @@
         <tbody>
           <tr>
             <th scope="row">AA</th>
-            <td v-for="(point, index) in pointsAA" :key="'aa-' + index" :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
+            <td v-for="(point, index) in pointsAA" :key="'aa-' + index"
+              :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
             <td>{{ calcRatio() }}</td>
           </tr>
           <tr>
             <th scope="row">AAA</th>
-            <td v-for="(point, index) in pointsAAA" :key="'aaa-' + index" :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
+            <td v-for="(point, index) in pointsAAA" :key="'aaa-' + index"
+              :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
             <td>{{ calcRatio() }}</td>
           </tr>
         </tbody>
@@ -57,6 +80,8 @@
   const selected = ref(''); // Variable to store the selected option
   const pointsAA = [4.5, 3.1, 3.1]
   const pointsAAA = [7.1, 4.5, 3.1]
+  const checkboxBold = ref(false)
+  const fontSizeOptionExample = ref(16)
 
   let backHex
   let foreHex
@@ -131,6 +156,7 @@ function contrastRatio(lum1, lum2) {
     return (brighter + 0.05) / (darker + 0.05);
 }
 
+// Calculate the contrast ratio between the background and foreground colors
 function calcRatio() {
   let bgRgb = backHex ? hexToRgb(backHex) : hexToRgb(backgroundColor.value);
   let fgRgb = foreHex ? hexToRgb(foreHex) : hexToRgb(foregroundColor.value);
@@ -165,6 +191,8 @@ function calcRatio() {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    max-width: 620px;
+    margin: 0 auto;
 }
 
 .wcag-color-picker-container {
@@ -175,17 +203,50 @@ function calcRatio() {
     gap: 1rem;
 }
 
+.color-example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 0.3rem;
+    width: 100%;
+}
+
+.text-option-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.font-size-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input {
+    width: 4em;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.checkbox-bold-text {
+  cursor: pointer;
+}
+
 .wcag-background {
     padding: 1rem;
     width: 100%;
-    border-radius: 0.3rem;
-    margin-top: 1rem;
+    border-radius: 8px;
     border: 1px solid #ccc;
 }
 
 .wcag-foreground {
   margin: 0 !important;
-  font-size: 1em;
+  width: 100%;
 }
 
 .color-disability {
