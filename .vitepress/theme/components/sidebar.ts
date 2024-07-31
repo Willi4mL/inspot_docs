@@ -48,10 +48,11 @@ export const sidebar = [
         ]
       },
       {
-        text: 'Tillgänglighet',
+        text: 'Verktyg',
         collapsed: true,
         items: [
-          { text: 'Färger', link: '/docs-pages/docs-accessibility/colors' },
+          { text: 'Färger', link: '/docs-pages/docs-tools/colors' },
+          { text: 'Bilder', link: '/docs-pages/docs-tools/resolution' },
         ]
       },
       { text: 'Markdown Examples', link: '/markdown-examples' },

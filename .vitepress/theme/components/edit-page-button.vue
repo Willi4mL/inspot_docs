@@ -42,7 +42,7 @@ onMounted(() => {
 <style>
 /* Edit page button */
 .edite-button-container {
-  padding-top: 2rem;
+  padding-top: 6rem;
 }
 
 .edit-link-light {
