@@ -15,5 +15,3 @@ export default {
     // ...
   }
 } satisfies Theme
-
-
