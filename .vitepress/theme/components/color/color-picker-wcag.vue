@@ -25,7 +25,7 @@
 
         <div>
           <label class="checkbox-bold-text" for="checkboxBold">Fet text
-            <input type="checkbox" name="checkboxBold" id="checkboxBold" v-model="checkboxBold">
+            <input type="checkbox" name="checkboxBold" id="checkboxBold" class="checkboxBold" v-model="checkboxBold">
           </label>
         </div>
 
@@ -231,6 +231,18 @@ function calcRatio() {
     gap: 1rem;
 }
 
+.vacp-color-picker {
+  background-color: transparent
+}
+
+.vacp-color-input {
+  color: #000000;
+}
+
+.vacp-icon > path {
+  fill: #000000 !important;
+}
+
 .color-example-container {
     display: flex;
     flex-direction: column;
@@ -252,6 +264,7 @@ function calcRatio() {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 
   input {
     width: 4em;
@@ -261,7 +274,8 @@ function calcRatio() {
   }
 }
 
-.checkbox-bold-text {
+.checkbox-bold-text,
+.checkboxBold {
   cursor: pointer;
 }
 

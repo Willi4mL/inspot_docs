@@ -51,7 +51,7 @@ export const sidebar = [
         text: 'Verktyg',
         collapsed: true,
         items: [
-          { text: 'Färger', link: '/docs-pages/docs-accessibility/colors' },
+          { text: 'WCAG', link: '/docs-pages/docs-accessibility/colors' },
         ]
       },
       { text: 'Markdown Examples', link: '/markdown-examples' },
