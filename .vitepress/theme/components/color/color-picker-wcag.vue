@@ -54,13 +54,13 @@
           <tr>
             <th scope="row">AA</th>
             <td v-for="(point, index) in pointsAA" :key="'aa-' + index"
-              :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
+              :style="{ backgroundColor: calcRatio() >= point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
             <td>{{ calcRatio() }}</td>
           </tr>
           <tr>
             <th scope="row">AAA</th>
             <td v-for="(point, index) in pointsAAA" :key="'aaa-' + index"
-              :style="{ backgroundColor: calcRatio() > point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
+              :style="{ backgroundColor: calcRatio() >= point ? '#65d75bff' : '#e64949ff' }">{{ point }}</td>
             <td>{{ calcRatio() }}</td>
           </tr>
         </tbody>
