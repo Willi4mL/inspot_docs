@@ -9,9 +9,9 @@
   </select>
   <section class="wcag-container">
     <div class="wcag-color-picker-container">
-      <ColorPicker @color-change="updateColorBackground" id="color-picker-background" default-format="hex"
+      <ColorPicker @color-change="updateBackground" id="color-picker-background" default-format="hex"
         alpha-channel="hide" />
-      <ColorPicker @color-change="updateColorText" id="color-picker-foreground" default-format="hex"
+      <ColorPicker @color-change="updateForeground" id="color-picker-foreground" default-format="hex"
         alpha-channel="hide" color="#000000" />
     </div>
     <div class="color-example-container">
@@ -31,8 +31,8 @@
 
       </div>
 
-      <div class="wcag-background" :style="{ backgroundColor: backgroundColor }">
-        <input class="wcag-foreground" :style="{ color: foregroundColor, fontWeight: checkboxBold ? 'bold' : 'normal', fontSize: fontSizeOptionExample + 'px' }"
+      <div class="wcag-background" :style="{ backgroundColor: transformedBackgroundColor }">
+        <input class="wcag-foreground" :style="{ color: transformedForegroundColor, fontWeight: checkboxBold ? 'bold' : 'normal', fontSize: fontSizeOptionExample + 'px' }"
           value="Lorem ipsum"></input>
       </div>
     </div>
@@ -69,120 +69,148 @@
   </section>
 </template>
   
-  <script setup>
-  import { ref } from 'vue'
-  import { ColorPicker } from 'vue-accessible-color-picker'
-  import { simulate } from '@bjornlu/colorblind';
-  
-  // Reactive variables for background and foreground colors
-  const backgroundColor = ref('#fffffff'); // Initial background color
-  const foregroundColor = ref('#00000'); // Initial foreground color
-  const selected = ref(''); // Variable to store the selected option
-  const pointsAA = [4.5, 3.1, 3.1]
-  const pointsAAA = [7.1, 4.5, 3.1]
-  const checkboxBold = ref(false)
-  const fontSizeOptionExample = ref(16)
+<script setup>
+import { ref, watch } from 'vue'
+import { ColorPicker } from 'vue-accessible-color-picker'
+import { simulate } from '@bjornlu/colorblind';
 
-  let backHex
-  let foreHex
+// Define reactive references for original background and foreground colors
+const originalBackgroundColor = ref('#ffffff'); // Store the original background color
+const originalForegroundColor = ref('#000000'); // Store the original foreground color
 
-  function updateColorBackground (eventData) {
-    let color = eventData.cssColor;
+// Define reactive references for transformed colors, initially set to original values
+const transformedBackgroundColor = ref(originalBackgroundColor.value);
+const transformedForegroundColor = ref(originalForegroundColor.value);
+
+// Reactive reference for the current selection state
+const selected = ref('');
+
+// Accessibility standards for contrast ratios (AA and AAA levels)
+const pointsAA = [4.5, 3.1, 3.1]; // Contrast ratios for AA standard
+const pointsAAA = [7.1, 4.5, 3.1]; // Contrast ratios for AAA standard
+
+// Reactive reference for checkbox state indicating if text is bold
+const checkboxBold = ref(false);
+
+// Reactive reference for font size example
+const fontSizeOptionExample = ref(16);;
+
+// Update colors based on the current selection
+function updateColors() {
   if (selected.value !== '' && selected.value !== 'normal') {
-    let backgroundInRgb = hexToRgb(color.startsWith('#') ? color : backgroundColor.value);
-    let simulatedColor = simulate({ r: backgroundInRgb[0], g: backgroundInRgb[1], b: backgroundInRgb[2] }, selected.value);
-    backHex = backgroundColor.value = rgbToHex(simulatedColor.r, simulatedColor.g, simulatedColor.b); 
-    backgroundColor.value = `rgb(${simulatedColor.r}, ${simulatedColor.g}, ${simulatedColor.b})`;
-    } else {
-      backHex = null;
-      backgroundColor.value = color;
-  }
- }
-
-  function updateColorText (eventData) {
-    let color = eventData.cssColor;
-  if (selected.value !== '' && selected.value !== 'normal') {
-    let foregroundInRgb = hexToRgb(color.startsWith('#') ? color : foregroundColor.value);
-    let simulatedColor = simulate({ r: foregroundInRgb[0], g: foregroundInRgb[1], b: foregroundInRgb[2] }, selected.value);
-    foreHex = foregroundColor.value = rgbToHex(simulatedColor.r, simulatedColor.g, simulatedColor.b);
-    foregroundColor.value = `rgb(${simulatedColor.r}, ${simulatedColor.g}, ${simulatedColor.b})`;
+    // Update colors based on selection for both background and foreground
+    updateColorBasedOnSelection(originalBackgroundColor.value, 'background');
+    updateColorBasedOnSelection(originalForegroundColor.value, 'foreground');
   } else {
-    foreHex = null;
-    foregroundColor.value = color;
+    // If no selection or 'normal' is selected, revert to original colors
+    transformedBackgroundColor.value = originalBackgroundColor.value;
+    transformedForegroundColor.value = originalForegroundColor.value;
   }
- }
-
- function hexToRgb(hex) {
-    // Remove the '#' character
-    hex = hex.replace('#', '');
-    
-    // Convert to RGB
-    let bigint = parseInt(hex, 16);
-    let r = (bigint >> 16) & 255;
-    let g = (bigint >> 8) & 255;
-    let b = bigint & 255;
-    
-    return [r, g, b];
 }
 
-function rgbToHex(r, g, b) {
-    // Ensure each component is within 0-255
-    r = Math.max(0, Math.min(255, r));
-    g = Math.max(0, Math.min(255, g));
-    b = Math.max(0, Math.min(255, b));
-
-    // Convert to hexadecimal and pad with leading zeros if necessary
-    let red = r.toString(16).padStart(2, '0');
-    let green = g.toString(16).padStart(2, '0');
-    let blue = b.toString(16).padStart(2, '0');
-
-    // Combine into a full hex string
-    return `#${red}${green}${blue}`.toUpperCase();
+// Update the background color based on event data
+function updateBackground(eventData) {
+  const color = eventData.cssColor ? eventData.cssColor : eventData.value;
+  // Update the original background color and trigger color update
+  originalBackgroundColor.value = color;
+  updateColors();
 }
 
-function luminance(r, g, b) {
-    // Convert RGB to sRGB
-    let a = [r, g, b].map(function(value) {
-        value /= 255;
-        return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
-    });
-    // Calculate the luminance
-    return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+// Update the foreground color based on event data
+function updateForeground(eventData) {
+  const color = eventData.cssColor ? eventData.cssColor : eventData.value;
+  // Update the original foreground color and trigger color update
+  originalForegroundColor.value = color;
+  updateColors();
 }
 
-function contrastRatio(lum1, lum2) {
-    let brighter = Math.max(lum1, lum2);
-    let darker = Math.min(lum1, lum2);
-    return (brighter + 0.05) / (darker + 0.05);
-}
-
-// Calculate the contrast ratio between the background and foreground colors
-function calcRatio() {
-  let bgRgb = backHex ? hexToRgb(backHex) : hexToRgb(backgroundColor.value);
-  let fgRgb = foreHex ? hexToRgb(foreHex) : hexToRgb(foregroundColor.value);
-  let simulatedBgRgb, simulatedFgRgb;
-  
-  if(selected.value !== '' && selected.value !== 'normal') {
-    let simulatedBg = simulate({ r: bgRgb[0], g: bgRgb[1], b: bgRgb[2] }, selected.value);
-    let simulatedFg = simulate({ r: fgRgb[0], g: fgRgb[1], b: fgRgb[2] }, selected.value);
-    
-    simulatedBgRgb = [simulatedBg.r, simulatedBg.g, simulatedBg.b];
-    simulatedFgRgb = [simulatedFg.r, simulatedFg.g, simulatedFg.b];
+// Update color based on the current selection for either background or foreground
+function updateColorBasedOnSelection(color, type) {
+  const colorInRgb = hexToRgb(color);
+  if (selected.value !== '' && selected.value !== 'normal') {
+    // Simulate color based on the selection
+    const simulatedColor = simulate({ r: colorInRgb[0], g: colorInRgb[1], b: colorInRgb[2] }, selected.value);
+    // Convert simulated color back to hex
+    const hexCode = rgbToHex(simulatedColor.r, simulatedColor.g, simulatedColor.b);
+    // Update the transformed color based on the type (background or foreground)
+    if (type === 'background') {
+      transformedBackgroundColor.value = hexCode;
     } else {
-      simulatedBgRgb = bgRgb;
-      simulatedFgRgb = fgRgb;
+      transformedForegroundColor.value = hexCode;
+    }
+  } else {
+    // If no selection or 'normal' is selected, revert to original color
+    if (type === 'background') {
+      transformedBackgroundColor.value = color;
+    } else {
+      transformedForegroundColor.value = color;
+    }
   }
+}
 
-  let bgLum = luminance(...simulatedBgRgb);
-  let fgLum = luminance(...simulatedFgRgb);
+// Setup watchers to trigger updateColors when selected, originalBackgroundColor, or originalForegroundColor changes
+watch([selected, originalBackgroundColor, originalForegroundColor], () => {
+  updateColors();
+}, { immediate: true });
 
+// Convert hex color to RGB
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  // Parse hex string to integer
+  let bigint = parseInt(hex, 16);
+  // Extract RGB values
+  let r = (bigint >> 16) & 255;
+  let g = (bigint >> 8) & 255;
+  let b = bigint & 255;
+  return [r, g, b];
+}
+
+// Convert RGB color to hex
+function rgbToHex(r, g, b) {
+  // Ensure RGB values are within 0-255 range
+  r = Math.max(0, Math.min(255, r));
+  g = Math.max(0, Math.min(255, g));
+  b = Math.max(0, Math.min(255, b));
+  // Convert RGB values to hex string
+  let red = r.toString(16).padStart(2, '0');
+  let green = g.toString(16).padStart(2, '0');
+  let blue = b.toString(16).padStart(2, '0');
+  return `#${red}${green}${blue}`.toUpperCase();
+}
+
+// Calculate luminance of a color
+function luminance(r, g, b) {
+  // Convert RGB to relative luminance
+  let a = [r, g, b].map(value => {
+    value /= 255;
+    return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
+  });
+  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+}
+
+// Calculate contrast ratio between two luminances
+function contrastRatio(lum1, lum2) {
+  // Determine the brighter and darker luminances
+  let brighter = Math.max(lum1, lum2);
+  let darker = Math.min(lum1, lum2);
+  // Calculate contrast ratio
+  return (brighter + 0.05) / (darker + 0.05);
+}
+
+// Calculate the contrast ratio between transformed background and foreground colors
+function calcRatio() {
+  // Convert transformed colors to RGB
+  let bgRgb = hexToRgb(transformedBackgroundColor.value);
+  let fgRgb = hexToRgb(transformedForegroundColor.value);
+  // Calculate luminance for both colors
+  let bgLum = luminance(...bgRgb);
+  let fgLum = luminance(...fgRgb);
+  // Calculate and return contrast ratio
   return Number(contrastRatio(bgLum, fgLum).toFixed(2));
 }
-
 </script>
-  
-  
 
+  
 <style>
 @import url('vue-accessible-color-picker/styles');
 
