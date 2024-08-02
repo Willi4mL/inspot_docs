@@ -51,7 +51,8 @@ export const sidebar = [
         text: 'Verktyg',
         collapsed: true,
         items: [
-          { text: 'WCAG', link: '/docs-pages/docs-accessibility/colors' },
+          { text: 'WCAG', link: '/docs-pages/docs-tools/colors' },
+          { text: 'Komprimera bildfil', link: '/docs-pages/docs-tools/compress-image' },
         ]
       },
       { text: 'Markdown Examples', link: '/markdown-examples' },
