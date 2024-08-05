@@ -23,7 +23,7 @@
           </label>
         </div>
 
-        <div>
+        <div class="checkbox-container">
           <label class="checkbox-bold-text" for="checkboxBold">Fet text
             <input type="checkbox" name="checkboxBold" id="checkboxBold" class="checkboxBold" v-model="checkboxBold">
           </label>
@@ -271,11 +271,30 @@ function calcRatio() {
     border: 1px solid #ccc;
     border-radius: 0.3rem;
     padding: 0 0.5rem;
+    transition: all 0.25s !important;
   }
+
+  input:hover {
+    border: 1px solid var(--vp-button-brand-border);
+  }
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s !important;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+}
+
+.checkbox-container:hover {
+  border: 1px solid var(--vp-button-brand-border);
 }
 
 .checkbox-bold-text,
 .checkboxBold {
+  padding: 0 0.5rem;
   cursor: pointer;
 }
 
@@ -284,6 +303,11 @@ function calcRatio() {
     width: 100%;
     border-radius: 8px;
     border: 1px solid #ccc;
+    transition: all 0.25s !important;
+}
+
+.wcag-background:hover {
+  border: 1px solid var(--vp-button-brand-border);
 }
 
 .wcag-foreground {
