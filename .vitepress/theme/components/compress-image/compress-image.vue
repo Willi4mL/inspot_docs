@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div>
       <input type="file" id="fileInput" @change="handleFileChange" style="display: none;" />
       <label for="fileInput" slot="upload-label">
@@ -9,15 +8,15 @@
         </figure>
         <div class="button-container">
           <span class="upload-button">{{ hasImage ? "Byt bild" : "Ladda upp bild" }}</span>
-          <a v-if="compressedImage" :href="compressedImage" :download=downloadLink class="download-button">Hämta
-            komprimerad bild</a>
-        </div>
-        <div class="set-image-size-container">
           <label class="set-image-size" for="image-size-input">Max höjd/bredd (px):
             <input class="image-size-input" id="image-size-input" name="image-size-input" form="image-size-input"
               type="number" v-model="setImageSize" />
             (Valfritt)
           </label>
+        </div>
+        <div class="download-button-container">
+          <a v-if="compressedImage" :href="compressedImage" :download=downloadLink class="download-button">Hämta
+            komprimerad bild</a>
         </div>
       </label>
       <div class="image-preview">
@@ -115,7 +114,7 @@ function fileFormat(orgFile, compFile) {
   gap: 1rem;
 }
 
-.set-image-size-container {
+.download-button-container {
   display: flex;
   align-items: center;
   margin-top: 1rem;
