@@ -53,6 +53,7 @@ export const sidebar = [
         items: [
           { text: 'WCAG', link: '/docs-pages/docs-tools/colors' },
           { text: 'Komprimera bildfil', link: '/docs-pages/docs-tools/compress-image' },
+          { text: 'Testformulär av hemsida', link: '/docs-pages/docs-tools/site-test' },
         ]
       },
       { text: 'Markdown Examples', link: '/markdown-examples' },
