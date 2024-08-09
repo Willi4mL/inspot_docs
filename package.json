@@ -10,6 +10,7 @@
   "dependencies": {
     "@bjornlu/colorblind": "^1.0.3",
     "browser-image-compression": "^2.0.2",
+    "primevue": "^4.0.4",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-accessible-color-picker": "^5.0.1"
   }
